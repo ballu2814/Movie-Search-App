@@ -1,0 +1,35 @@
+doctype html
+html
+  title Moviepedia
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+  body
+    .w3-container.w3-teal.w3-margin-bottom
+      h1 #{filmdata.name}
+    .w3-row-padding
+      .w3-twothird
+        h2 Actors
+        table.w3-table.w3-striped.w3-bordered.w3-border
+          thead.w3-teal
+            th(style='width:30%')
+            th Name
+          each val,index in filmdata.actor
+            tr
+              td(style='width:30%') #{filmdata.actor[index]}
+              td
+          
+        h2 Director And Producer
+        table.w3-table.w3-striped.w3-bordered.w3-border
+          thead.w3-teal
+            th(style='width:30%')
+            th Name
+          tr
+            td Director
+            td #{filmdata.director}
+          tr
+            td Producer
+            td #{filmdata.producer}
+      .w3-third
+        h1 Abstract
+        p
+          |#{filmdata.abstract}

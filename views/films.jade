@@ -1,0 +1,22 @@
+doctype html
+html
+  title Moviepedia
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+  body
+    .w3-container.w3-teal.w3-margin-bottom
+      h1 Film Names 
+    .w3-row-padding
+      .w3-twothird
+        h2 Films
+        table.w3-table.w3-striped.w3-bordered.w3-border
+          thead.w3-teal
+            th(style='width:30%')
+            th Name
+            each val,index in films
+             tr
+              td(style='width:30%')   
+                form(name='submitForm'+index, method='POST', action='/submit')
+                 input(type='hidden', name='param1', value=films[index])
+                 a(href='javascript:document.submitForm'+index+'.submit()') #{films[index]}
+               td

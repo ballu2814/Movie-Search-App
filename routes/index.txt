@@ -1,0 +1,53 @@
+Promises are a concurrency primitive, first described in the 80s. Now they are part of most modern programming languages to make your life easier. Promises can help you better handle async operations.
+
+An example can be the following snippet, which after 100ms prints out the result string to the standard output. Also, note the catch, which can be used for error handling. Promises are chainable.
+
+new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('result')
+  }, 100)
+})
+  .then(console.log)
+  .catch(console.error)
+What tools can be used to assure consistent style? Why is it important?
+When working in a team, consistent style is important, so team members can modify more projects easily, without having to get used to a new style each time.
+
+Also, it can help eliminate programming issues using static analysis.
+
+Tools that can help:
+
+ESLint
+Standard
+If you’d like to be even more confident, I suggest you to learn and embrace the JavaScript Clean Coding principles as well!
+
+What's a stub? Name a use case!
+Stubs are functions/programs that simulate the behaviors of components/modules. Stubs provide canned answers to function calls made during test cases.
+
+An example can be writing a file, without actually doing so.
+
+var fs = require('fs')
+
+var writeFileStub = sinon.stub(fs, 'writeFile', function (path, data, cb) {  
+  return cb(null)
+})
+
+expect(writeFileStub).to.be.called
+writeFileStub.restore()
+What's a test pyramid? Give an example!
+A test pyramid describes the ratio of how many unit tests, integration tests and end-to-end test you should write.
+
+
+An example for an HTTP API may look like this:
+
+lots of low-level unit tests for models (dependencies are stubbed),
+fewer integration tests, where you check how your models interact with each other (dependencies are not stubbed),
+less end-to-end tests, where you call your actual endpoints (dependencies are not stubbed).
+What's your favorite HTTP framework and why?
+There is no right answer for this. The goal here is to understand how deeply one knows the framework she/he uses. Tell what are the pros and cons of picking that framework.
+
+When are background/worker processes useful? How can you handle worker tasks?
+Worker processes are extremely useful if you'd like to do data processing in the background, like sending out emails or processing images.
+
+There are lots of options for this like RabbitMQ or Kafka.
+
+How can you sec hello
